@@ -1,4 +1,4 @@
-from flask import Flask, request, send_file
+from flask import Flask, request, send_file, render_template
 import sqlite3
 import xml.etree.ElementTree as ET
 import pandas as pd
@@ -26,16 +26,7 @@ with get_sqlite_connection() as conn:
 
 @app.route('/')
 def index():
-    return '''
-        <html>
-            <body>
-                <form action="/upload" method="post" enctype="multipart/form-data">
-                    <input type="file" name="file">
-                    <input type="submit" value="Enviar">
-                </form>
-            </body>
-        </html>
-    '''
+    return render_template('index.html')
 
 @app.route('/upload', methods=['POST'])
 def upload():
