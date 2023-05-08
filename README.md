@@ -1,0 +1,1 @@
+Aplicação web para verificação de arquivo XML com determinada TAG a ser informada diretamente no código (a ser melhorado) e com base em um excel contendo o DE-PARA entre as colunas A e B, substituir nas tags pela correlação.
