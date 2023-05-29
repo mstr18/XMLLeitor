@@ -5,8 +5,19 @@ import pandas as pd
 import threading
 import math
 import io
+import pyodbc
 
 app = Flask(__name__)
+
+#connection_string = "Driver={Oracle ODBC Driver};DBQ=10.1.0.131:1521/DBTOTVSP;UID=RM;PWD=?????"
+connection_string = "DSN=DBTOTVSP;UID=RM;PWD=f/M701iv_LoAE1@"
+connection = pyodbc.connect(connection_string)
+cursor = connection.cursor()
+cursor.execute("SELECT * FROM SZCID")
+
+rows = cursor.fetchall()
+for row in rows:
+    print(row)
 
 # Ler arquivo Excel
 df = pd.read_excel('UNIMED.xlsx')
